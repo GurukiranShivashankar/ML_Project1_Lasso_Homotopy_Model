@@ -5,7 +5,6 @@ import subprocess
 import pytest
 from LassoHomotopy.lasso_homotopy import LassoHomotopyModel
 
-#  Works with column names like X1, X2, ..., X10
 def load_csv(filename):
     with open(filename, "r") as f:
         reader = csv.DictReader(f)
@@ -15,7 +14,6 @@ def load_csv(filename):
     X = np.array([[float(row[k]) for k in x_keys] for row in data])
     return X, data
 
-#  Test 1 - small dataset
 def test_small_dataset():
     path = "tests/small_test.csv"
     if not os.path.exists(path):
@@ -35,7 +33,6 @@ def test_small_dataset():
     assert len(results.coef_) == X.shape[1]
 
 
-#  Test 2 - collinear dataset (generate y inside)
 def test_collinear_data_sparse_solution():
     path = "tests/collinear_data.csv"
     if not os.path.exists(path):
@@ -62,7 +59,6 @@ def test_collinear_data_sparse_solution():
     assert num_zeros >= 5
 
 
-#  Test 3 - auto-generates data using your script
 def test_generated_data_sparse_solution():
     path = "tests/generated_data.csv"
 
