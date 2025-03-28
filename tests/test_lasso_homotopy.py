@@ -3,7 +3,8 @@ import csv
 import numpy as np
 import subprocess
 import pytest
-from LassoHomotopy.lasso_homotopy import LassoHomotopyModel
+from LassoHomotopy.model.lasso_homotopy import LassoHomotopyModel
+
 
 def load_csv(filename):
     with open(filename, "r") as f:
